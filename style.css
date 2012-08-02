@@ -1,0 +1,18 @@
+.generatedNames {
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    font-size: 3em;
+}
+
+li {
+    line-height: 100%;
+}
+
+.generatedName {
+    color: #0000ff;
+}
+
+.chemElem {
+    font-weight: bolder;
+    color: green;
+}

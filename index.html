@@ -3,6 +3,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="//current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-combined.min.css">
 		<script src="../node_modules/montage/montage.js"></script>
+        <link rel="stylesheet" href="style.css" />
 
         <script type="text/montage-serialization">{
             "owner": {
@@ -52,12 +53,14 @@
             },
 
             "generatedName": {
-                "prototype": "montage/ui/dynamic-text.reel",
+                "prototype": "montage/ui/dynamic-element.reel",
                 "properties": {
-                    "element": {"#": "generatedName"}
+                    "element": {"#": "generatedName"},
+                    "allowedTagNames": ["strong", "span"],
+                    "class": "generatedName"
                 },
                 "bindings": {
-                    "value": {"<-": "@generatedNames.objectAtCurrentIteration"}
+                    "innerHTML": {"<-": "@generatedNames.objectAtCurrentIteration"}
                 }
             }
         }</script>
@@ -70,8 +73,8 @@
 			<p>This will generate credit names like the ones seen on Breaking Bad</p>
             <input type="text" data-montage-id="name" placeholder="Enter name" />
 			<button data-montage-id="generate">Generate!</button>
-			<ul data-montage-id="generatedNames">
-				<li data-montage-id="generatedName">Item 1</li>
+			<ul data-montage-id="generatedNames" class="generatedNames">
+                <li data-montage-id="generatedName" class="generatedName"></li>
 			</ul>
 		</div>
 	</div>

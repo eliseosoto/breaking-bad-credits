@@ -20,8 +20,9 @@ exports.BreakingBadCredits = Montage.create(Montage, {
 
     handleAction: {
         value: function(event) {
-
+            this.generatedNames = [];
             this.generatedNames = this.generateNames(this.name);
+            this.needsDraw = true;
         }
     },
 
@@ -54,7 +55,7 @@ exports.BreakingBadCredits = Montage.create(Montage, {
                 elementToLookup = elementToLookup.toLowerCase();
 
                 if (this.elements.hasOwnProperty(elementToLookup)) {
-                    bbName = bbName + '[' + this.elements[elementToLookup].symbol + ']' + str.substring(currentIndex + (elementToLookup.length));
+                    bbName = bbName + '<span class="chemElem">' + this.elements[elementToLookup].symbol + '</span>' + str.substring(currentIndex + (elementToLookup.length));
                     bbNames.push(bbName);
                 }
 
