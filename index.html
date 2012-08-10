@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="//current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-combined.min.css">
+		<script src="../node_modules/montage/montage.js"></script>
+        <link rel="stylesheet" href="style.css" />
+
+        <script type="text/montage-serialization">{
+            "owner": {
+                "prototype": "breaking-bad-credits",
+                "properties": {
+                    "generatedNamesController": {"@": "generatedNamesController"}
+                }
+            },
+
+            "name": {
+                "prototype": "montage/ui/native/input-text.reel",
+                "properties": {
+                    "element": {"#": "name"}
+                },
+                "bindings": {
+                    "value": {"<->": "@owner.name"}
+                }
+            },
+
+            "generate": {
+                "prototype": "montage/ui/native/button.reel",
+                "properties": {
+                    "element": {"#": "generate"},
+                    "identifier": "generate"
+                },
+                "listeners": [
+                    {
+                        "type": "action",
+                        "listener": {"@": "owner"}
+                    }
+                ]
+            },
+
+            "generatedNamesController": {
+                "prototype": "montage/ui/controller/array-controller",
+                "bindings": {
+                    "content": {"<->": "@owner.generatedNames"}
+                }
+            },
+
+            "generatedNames": {
+                "prototype": "montage/ui/repetition.reel",
+                "properties": {
+                    "element": {"#": "generatedNames"},
+                    "contentController": {"@": "generatedNamesController"}
+                }
+            },
+
+            "generatedName": {
+                "prototype": "montage/ui/dynamic-element.reel",
+                "properties": {
+                    "element": {"#": "generatedName"},
+                    "allowedTagNames": ["strong", "span"],
+                    "class": "generatedName"
+                },
+                "bindings": {
+                    "innerHTML": {"<-": "@generatedNames.objectAtCurrentIteration"}
+                }
+            }
+        }</script>
+	</head>
+	<body>
+
+<div class="container">
+		<div class="row">
+		<div class="span12">
+			<p>This will generate credit names like the ones seen on Breaking Bad</p>
+            <input type="text" data-montage-id="name" placeholder="Enter name" />
+			<button data-montage-id="generate">Generate!</button>
+			<ul data-montage-id="generatedNames" class="generatedNames">
+                <li data-montage-id="generatedName" class="generatedName"></li>
+			</ul>
+		</div>
+	</div>
+	</div>
+	</body>
+</html>
