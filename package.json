@@ -1,7 +1,7 @@
 {
     "name": "breaking-bad-credits",
     "version": "1.0.0",
-    "mappings": {
-        "montage": "./node_modules/montage"
+    "dependencies": {
+        "montage": "*"
     }
 }
