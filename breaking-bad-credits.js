@@ -15,11 +15,12 @@ exports.BreakingBadCredits = Montage.create(Montage, {
     templateDidLoad: {
         value: function() {
             this.elements = JSON.parse(this.elementsJson);
+			this.addPropertyChangeListener("name", this, false);
         }
     },
 
-    handleAction: {
-        value: function(event) {
+    handleChange: {
+        value: function(notification) {
             this.generatedNames = [];
             this.generatedNames = this.generateNames(this.name);
             this.needsDraw = true;
