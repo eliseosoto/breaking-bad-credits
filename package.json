@@ -2,6 +2,6 @@
     "name": "breaking-bad-credits",
     "version": "1.0.0",
     "dependencies": {
-        "montage": "*"
+        "montage": "0.12.7"
     }
 }
