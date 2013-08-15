@@ -2,3 +2,4 @@
 .tm_properties
 builds/
 release/
+node_modules
